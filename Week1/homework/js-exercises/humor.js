@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 function a(url) {
   axios.get(url).then(data => console.log(data));
 }
