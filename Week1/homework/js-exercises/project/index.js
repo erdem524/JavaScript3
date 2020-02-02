@@ -27,38 +27,38 @@
     });
     return elem;
   }
-          function repoDetails(repo, ul) {
-            const li = createAndAppend('li', ul);
-            const table = createAndAppend('table', li);
+  function repoDetails(repo, ul) {
+    const li = createAndAppend('li', ul);
+    const table = createAndAppend('table', li);
 
-            //tr-repository
-            let tr = createAndAppend('tr', table);
-            createAndAppend('th', tr, { text: 'Repository: ' });
-            let td = createAndAppend('td', tr);
-            createAndAppend('a', td, {
-              href: repo.html_url,
-              text: repo.name,
-              target: '_blank',
-            });
+    //tr-repository
+    let tr = createAndAppend('tr', table);
+    createAndAppend('th', tr, { text: 'Repository: ' });
+    let td = createAndAppend('td', tr);
+    createAndAppend('a', td, {
+      href: repo.html_url,
+      text: repo.name,
+      target: '_blank',
+    });
 
-            //tr-description
-            tr = createAndAppend('tr', table);
-            createAndAppend('th', tr, { text: 'Description: ' });
-            td = createAndAppend('td', tr, { text: repo.description });
+    //tr-description
+    tr = createAndAppend('tr', table);
+    createAndAppend('th', tr, { text: 'Description: ' });
+    td = createAndAppend('td', tr, { text: repo.description });
 
-            //tr-forks
-            tr = createAndAppend('tr', table);
-            createAndAppend('th', tr, { text: 'Forks: ' });
-            td = createAndAppend('td', tr, { text: repo.forks });
+    //tr-forks
+    tr = createAndAppend('tr', table);
+    createAndAppend('th', tr, { text: 'Forks: ' });
+    td = createAndAppend('td', tr, { text: repo.forks });
 
-            //tr-update
-            tr = createAndAppend('tr', table);
-            createAndAppend('th', tr, { text: 'Updated: ' });
-            td = createAndAppend('td', tr, { text: repo.updated_at });
-          }
+    //tr-update
+    tr = createAndAppend('tr', table);
+    createAndAppend('th', tr, { text: 'Updated: ' });
+    td = createAndAppend('td', tr, { text: repo.updated_at });
+  }
 
   function main(url) {
-  createAndAppend('header', root, { text: 'HYF Repositories' });
+    createAndAppend('header', root, { text: 'HYF Repositories' });
     fetchJSON(url, (err, repos) => {
       const root = document.getElementById('root');
       if (err) {
@@ -69,13 +69,15 @@
         return;
       }
       const ul = createAndAppend('ul', root);
-      repos.sort((curRepo, nextRepo) => curRepo.name.localeCompare(nextRepo.name)) 
+      repos.sort((curRepo, nextRepo) =>
+        curRepo.name.localeCompare(nextRepo.name),
+      );
       repos.forEach(repo => repoDetails(repo, ul));
     });
   }
 
   const HYF_REPOS_URL =
     'https://api.github.com/orgs/HackYourFuture/repos?per_page=10';
-    
+
   window.onload = () => main(HYF_REPOS_URL);
 }
