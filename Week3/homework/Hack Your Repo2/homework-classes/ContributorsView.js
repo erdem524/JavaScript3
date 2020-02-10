@@ -24,9 +24,9 @@
         (this.div = createAndAppend('div', this.container, {
           class: 'contriDiv',
         })),
-          createAndAppend('h5', this.div, { text: contributor.login }),
-          createAndAppend('h4', this.div, { text: contributor.contributions }),
           createAndAppend('img', this.div, { src: contributor.avatar_url });
+        createAndAppend('h5', this.div, { text: contributor.login });
+        createAndAppend('h4', this.div, { text: contributor.contributions });
       });
     }
   }

@@ -7,14 +7,23 @@ body {
   background-color: #eee;
 }
 main {
-  width: 96%;
+  width: 98%;
   margin: 1%;
+  display: flex;
+  justify-content: space-between;
 }
+.repo-container {
+  height: 113px;
+  padding: 10px;
+}
+
 header {
   color: #fff;
   background-color: #3f51b5;
   font-size: 25px;
   padding: 20px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 ul {
@@ -22,12 +31,14 @@ ul {
 }
 select {
   margin-left: 50px;
+  padding: 10px;
+  font-size: 20px;
 }
 
 section {
   width: 100%;
   padding: 10px;
-  margin: 2%;
+  margin: 0.5%;
   background-color: #fff;
   padding: 10px;
 }
@@ -38,4 +49,18 @@ section {
   margin: 10px 0;
   display: flex;
   justify-content: space-between;
+}
+
+img {
+  width: 100px;
+}
+
+h4 {
+  display: block;
+  background-color: #eee;
+  height: 20px;
+  padding: 3px 5px;
+}
+h5 {
+  margin-top: 10px;
 }
